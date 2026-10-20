@@ -1,0 +1,4 @@
+*.cphd
+*.tif
+__pycache__/
+.vscode/
