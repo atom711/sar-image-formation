@@ -5,13 +5,8 @@ import numpy as np
 import rasterio
 from scipy.ndimage import uniform_filter
 
-# DEFINE PATHS & VERIFY FILE
+# file path
 sar_file_path = "2024-01-12-04-09-18_UMBRA-05_GEC.tif"
-
-if not os.path.exists(sar_file_path):
-    raise FileNotFoundError(f"Missing file: {sar_file_path}")
-
-print("Ingesting local spaceborne radar backscatter matrix...")
 
 # INGEST RASTER DATA VIA RASTERIO 
 with rasterio.open(sar_file_path) as src:
@@ -20,10 +15,6 @@ with rasterio.open(sar_file_path) as src:
 # ISOLATE TARGET MATRIX REGION
 sar_matrix = raw_backscatter[1999:4047, 1999:4047]
 rows, cols = sar_matrix.shape
-
-print(f"\n--- COHERENT RADAR LAYER INGESTED SUCCESSFULLY ---")
-print(f"Slant-Range Matrix Axis (Rows): {rows}")
-print(f"Cross-Range Matrix Axis (Cols): {cols}")
 
 # PHASE INTENSITY SCALING
 print("Executing log-transform intensity compression...")
