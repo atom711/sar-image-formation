@@ -6,6 +6,10 @@ The targeted site for this analysis workspace is the Bingham Canyon Copper Mine 
 
 ![Focused SAR Image MATLAB Output](sar_image_formation.png)
 
+The detail and resolution is quite good. Here is a RGB overhead view for reference:
+
+![RGB Overhead View](rgb_view.jpg)
+
 ## Data Source & Acquisition Workflow
 
 Satellite SAR data products are strictly categorized by their level of processing. Standard image files like Geocoded Ellipsoid Corrected (GEC) arrays are delivered as finished `.tif` rasters where the raw radar signals have already been focused, mapped, and filtered by ground station servers. CPHD files represent raw, un-focused signal records containing the original phase and amplitude returns captured directly by the spacecraft's sensor. 
