@@ -4,6 +4,7 @@ A modular Python framework for Synthetic Aperture Radar (SAR) signal processing,
 
 ## Repository Architecture
 
+```text
 sar-image-formation/
 ├── data/       # Local raw SAR phase history and CPHD archives (gitignored)
 ├── figures/    # Output plots, range profiles, and processing verification images
@@ -11,6 +12,7 @@ sar-image-formation/
 ├── src/        # Core algorithm modules (chirp generation, matched filtering, SAR core)
 ├── scripts/    # Data fetching and automation utilities
 └── tests/      # Verification and unit tests
+```
 
 ## Daily Milestones & Progress
 
