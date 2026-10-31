@@ -7,7 +7,7 @@ import numpy as np
 from sarpy.io.phase_history.cphd import CPHDReader
 
 # file
-cphd_file = "2024-01-12-04-09-18_UMBRA-05_CPHD.cphd"
+cphd_file = "data/2024-01-12-04-09-18_UMBRA-05_CPHD.cphd"
 
 # The reader object opens the file and maps out internal data segment positions
 reader = CPHDReader(cphd_file)
@@ -48,7 +48,7 @@ plt.xlabel("Cross-Range Azimuth Bins")
 plt.ylabel("Slant-Range Pulse Bins")
 plt.axis("image")
 
-output_name = "sar_image_formation.png"
+output_name = "data/sar_image_formation.png"
 plt.savefig(output_name, dpi=300, bbox_inches="tight")
 print(f"Process complete! Output successfully saved to disk as '{output_name}'")
 plt.show()

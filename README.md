@@ -1,20 +1,38 @@
-# Spaceborne SAR Image Formation: 2D Matched Filtering from Raw Phase History
+# SAR Image Formation Toolkit
 
-A Python script designed to ingest raw, uncompressed spaceborne **Compensated Phase History Data (CPHD)** and synthesize a focused Single-Look Complex (SLC) image.
+A modular Python framework for Synthetic Aperture Radar (SAR) signal processing, target simulation, and 2D image formation using real-world Phase History Data (CPHD/SICD).
 
-The targeted site for this analysis workspace is the Bingham Canyon Copper Mine in Utah, USA, captured via an Umbra Space X-Band Synthetic Aperture Radar (SAR) sensor executing a 0.5-Meter high-resolution Spotlight Mode Scan.
+## Repository Architecture
 
-![Focused SAR Image MATLAB Output](sar_image_formation.png)
+sar-image-formation/
+├── data/       # Local raw SAR phase history and CPHD archives (gitignored)
+├── figures/    # Output plots, range profiles, and processing verification images
+├── labs/       # Interactive lab scripts for core processing milestones
+├── src/        # Core algorithm modules (chirp generation, matched filtering, SAR core)
+├── scripts/    # Data fetching and automation utilities
+└── tests/      # Verification and unit tests
 
-The detail and resolution is quite good. Here is a RGB overhead view for reference:
+## Daily Milestones & Progress
 
-![RGB Overhead View](rgb_view.jpg)
+### Day 1: Range Compression & Signal Windowing
+* Implemented Linear Frequency Modulated (LFM) chirp generator.
+* Built 1D fast-time matched filtering using time-domain and frequency-domain correlation.
+* Evaluated mainlobe width vs. side-lobe suppression trade-offs comparing unwindowed (rectangular) and Hamming windowed functions (~30 dB side-lobe reduction).
 
-## Data Source & Acquisition Workflow
+### Real-World Data Pipeline Integration
+* Integrated native AWS CLI fetching protocols for Umbra CPHD datasets (`s3://umbra-open-data-catalog/`).
+* Standardized ingest workflows using `sarpy` for parsing multi-channel complex phase history matrices.
 
-Satellite SAR data products are strictly categorized by their level of processing. Standard image files like Geocoded Ellipsoid Corrected (GEC) arrays are delivered as finished `.tif` rasters where the raw radar signals have already been focused, mapped, and filtered by ground station servers. CPHD files represent raw, un-focused signal records containing the original phase and amplitude returns captured directly by the spacecraft's sensor. 
+## Quickstart & Setup
 
-Because these files are part of the open-access database hosted by the Umbra Open Data Program on Amazon S3, they can be pulled down natively through a terminal workspace. For an Ubuntu or Windows Subsystem for Linux (WSL) configuration, the native package manager can occasionally lack package candidate updates or run into secure path limitations. The optimal approach to establishing a working file ingestion pipeline is to deploy the official AWS CLI standalone binary package using the snap packaging engine with global system execution permissions, which automatically unzips and configures the environment path in one sequence.
+### 1. Environment Setup
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install numpy scipy matplotlib sarpy awscli
+```
+
+AWS install and data download:
 
 ```bash
 # Install the official AWS CLI engine natively using classic security permissions
