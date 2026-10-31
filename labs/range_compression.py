@@ -99,5 +99,5 @@ plt.legend()
 plt.tight_layout()
 
 # Save output figure to disk
-plt.savefig("data/chirp_matched_filter_comparison.png", dpi=300, bbox_inches='tight')
+plt.savefig("figures/chirp_matched_filter_comparison.png", dpi=300, bbox_inches='tight')
 plt.show()

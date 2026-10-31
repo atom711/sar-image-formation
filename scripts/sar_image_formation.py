@@ -48,7 +48,7 @@ plt.xlabel("Cross-Range Azimuth Bins")
 plt.ylabel("Slant-Range Pulse Bins")
 plt.axis("image")
 
-output_name = "data/sar_image_formation.png"
+output_name = "figures/sar_image_formation.png"
 plt.savefig(output_name, dpi=300, bbox_inches="tight")
 print(f"Process complete! Output successfully saved to disk as '{output_name}'")
 plt.show()
