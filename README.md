@@ -2,6 +2,8 @@
 
 A modular Python framework for Synthetic Aperture Radar (SAR) signal processing, target simulation, and 2D image formation using real-world Phase History Data (CPHD/SICD).
 
+![SAR Image](figures/python_formed_sar-image.png)
+
 ## Repository Architecture
 
 ```text
